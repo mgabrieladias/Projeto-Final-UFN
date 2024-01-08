@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
 
@@ -62,7 +62,7 @@
             <td>
                 <a class="btn btn-outline-info" th:href="@{/pacientes/{id}(id=${paciente.id})}">Detalhes</a>
                 <a class="btn btn-outline-warning" th:href="@{/pacientes/editar/{id}(id=${paciente.id})}">Editar</a>
-                <a class="btn btn-outline-danger" th:href="@{/pacientes/excluir/{id}(id=${paciente.id})}">Excluir</a>
+                <a class="btn btn-outline-danger" th:href="@{/pacientes/excluir/{id}(id=${paciente.id})}" onclick="return confirm('Tem certeza que deseja excluir o cadastro permanentemente?')">Excluir</a>
             </td>
         </tr>
         </tbody>

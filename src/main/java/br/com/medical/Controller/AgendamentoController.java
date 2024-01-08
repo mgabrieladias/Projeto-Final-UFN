@@ -6,6 +6,7 @@ import br.com.medical.Entity.Paciente;
 import br.com.medical.Service.AgendamentoService;
 import br.com.medical.Service.MedicoService;
 import br.com.medical.Service.PacienteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,7 +55,7 @@ public class AgendamentoController {
     }
 
     @PostMapping("/novo")
-    public String salvarAgendamento(@ModelAttribute Agendamento agendamento, BindingResult result, Model model) {
+    public String salvarAgendamento(@Valid @ModelAttribute Agendamento agendamento, BindingResult result, Model model) {
         if (result.hasErrors()) {
             List<Paciente> pacientes = pacienteService.listarPacientes();
             List<Medico> medicos = medicoService.listarMedicos();
@@ -68,7 +69,7 @@ public class AgendamentoController {
     }
 
     @GetMapping("/editar/{id}")
-    public String mostrarFormularioEditarAgendamento(@PathVariable Long id, Model model) {
+    public String mostrarFormularioEditarAgendamento(@Valid @PathVariable Long id, Model model) {
         Agendamento agendamento = agendamentoService.obterAgendamentoPorId(id);
         List<Paciente> pacientes = pacienteService.listarPacientes();
         List<Medico> medicos = medicoService.listarMedicos();
@@ -81,7 +82,7 @@ public class AgendamentoController {
     }
 
     @PostMapping("/editar/{id}")
-    public String editarAgendamento(@PathVariable Long id, @ModelAttribute Agendamento agendamento, BindingResult result, Model model) {
+    public String editarAgendamento(@Valid @PathVariable Long id, @ModelAttribute Agendamento agendamento, BindingResult result, Model model) {
         agendamento.setId(id);
 
         if (result.hasErrors()) {

@@ -2,6 +2,7 @@ package br.com.medical.Controller;
 
 import br.com.medical.Entity.Paciente;
 import br.com.medical.Service.PacienteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +43,7 @@ public class PacienteController {
     }
 
     @PostMapping("/novo")
-    public String salvarPaciente(@ModelAttribute Paciente paciente, BindingResult result) {
+    public String salvarPaciente(@Valid @ModelAttribute Paciente paciente, BindingResult result) {
         if (result.hasErrors()) {
             return "formulario-paciente";
         }
@@ -58,14 +59,14 @@ public class PacienteController {
     }
 
     @GetMapping("/editar/{id}")
-    public String mostrarFormularioEditarPaciente(@PathVariable Long id, Model model) {
+    public String mostrarFormularioEditarPaciente(@Valid @PathVariable Long id, Model model) {
         Paciente paciente = pacienteService.obterPacientePorId(id);
         model.addAttribute("paciente", paciente);
         return "formulario-paciente";
     }
 
     @PostMapping("/editar/{id}")
-    public String editarPaciente(@PathVariable Long id, @ModelAttribute Paciente paciente, BindingResult result) {
+    public String editarPaciente(@Valid @PathVariable Long id, @ModelAttribute Paciente paciente, BindingResult result) {
         paciente.setId(id);
 
         if (result.hasErrors()) {

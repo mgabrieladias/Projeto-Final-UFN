@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
 
-    <title>Choppermed Manager - Agendamentos</title>
+    <title>Choppermed Manager</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -55,7 +55,7 @@
             <td>
                 <a class="btn btn-outline-info" th:href="@{/agendamentos/{id}(id=${agendamento.id})}">Detalhes</a>
                 <a class="btn btn-outline-warning" th:href="@{/agendamentos/editar/{id}(id=${agendamento.id})}">Editar</a>
-                <a class="btn btn-outline-danger" th:href="@{/agendamentos/excluir/{id}(id=${agendamento.id})}">Excluir</a>
+                <a class="btn btn-outline-danger" th:href="@{/agendamentos/excluir/{id}(id=${agendamento.id})}" onclick="return confirm('Tem certeza que deseja excluir o agendamento permanentemente?')">Excluir</a>
             </td>
         </tr>
         </tbody>

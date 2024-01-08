@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-
     <title>Choppermed Manager</title>
 
     <!-- Bootstrap -->
@@ -34,7 +33,6 @@
     </div>
 </nav>
 
-
 <div class="container">
     <h2 class="mt-5 mb-4">Lista de Médicos</h2>
     <table class="table table-bordered">
@@ -60,7 +58,7 @@
             <td>
                 <a class="btn btn-outline-info" th:href="@{/medicos/{id}(id=${medico.id})}">Detalhes</a>
                 <a class="btn btn-outline-warning" th:href="@{/medicos/editar/{id}(id=${medico.id})}">Editar</a>
-                <a class="btn btn-outline-danger" th:href="@{/medicos/excluir/{id}(id=${medico.id})}">Excluir</a>
+                <a class="btn btn-outline-danger" th:href="@{/medicos/excluir/{id}(id=${medico.id})}" onclick="return confirm('Tem certeza que deseja excluir o cadastro permanentemente?')">Excluir</a>
             </td>
         </tr>
         </tbody>
@@ -73,6 +71,7 @@
 <footer class="bg-light text-center py-3 mt-5">
     <p>&copy; 2023 Choppermed Manager.</p>
 </footer>
+
 
 </body>
 </html>
