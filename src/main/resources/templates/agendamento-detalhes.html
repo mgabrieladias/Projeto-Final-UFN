@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Choppermed Manager</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Choppermed Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/medicos}">Médicos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/pacientes}">Pacientes</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/agendamentos}">Agendamentos</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 class="mt-5 mb-4">Detalhes do Agendamento</h2>
+    <p>ID: <span th:text="${agendamento.id}"></span></p>
+    <p>Paciente: <span th:text="${agendamento.paciente.nome}"></span></p>
+    <p>Médico: <span th:text="${agendamento.medico.nome}"></span></p>
+    <p>Data e Hora: <span th:text="${agendamento.dataHora}"></span></p>
+
+    <br>
+    <a class="btn btn-outline-secondary" th:href="@{/agendamentos}">Voltar para a lista</a>
+</div>
+
+<!-- Rodapé -->
+<footer class="bg-light text-center py-3 mt-5">
+    <p>&copy; 2023 Choppermed Manager.</p>
+</footer>
+
+</body>
+</html>

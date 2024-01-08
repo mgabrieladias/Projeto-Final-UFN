@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Choppermed Manager</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Choppermed Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/medicos}">Médicos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/pacientes}">Pacientes</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/agendamentos}">Agendamentos</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h2 class="mt-5 mb-4">Formulário</h2>
+    <form th:action="@{/medicos/novo}" th:object="${medico}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" th:field="*{nome}" />
+            <small class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="especialidade">Especialidade:</label>
+            <input type="text" class="form-control" id="especialidade" th:field="*{especialidade}" />
+            <small class="text-danger" th:if="${#fields.hasErrors('especialidade')}" th:errors="*{especialidade}"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" class="form-control" id="cpf" th:field="*{cpf}" />
+            <small class="text-danger" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" th:field="*{telefone}" />
+            <small class="text-danger" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="crm">CRM:</label>
+            <input type="text" class="form-control" id="crm" th:field="*{crm}" />
+            <small class="text-danger" th:if="${#fields.hasErrors('crm')}" th:errors="*{crm}"></small>
+        </div>
+
+        <button type="submit" class="btn btn-outline-info">Salvar</button>
+    </form>
+    <br>
+    <a class="btn btn-outline-secondary" th:href="@{/medicos}">Voltar para a lista</a>
+</div>
+
+<!-- Rodapé -->
+<footer class="bg-light text-center py-3 mt-5">
+    <p>&copy; 2023 Choppermed Manager.</p>
+</footer>
+
+</body>
+</html>
