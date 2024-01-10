@@ -18,16 +18,16 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome e obrigatorio")
+    @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
-    @NotBlank(message = "O CPF e obrigatorio")
-    @Pattern(regexp = "\\d{11}", message = "CPF inválido")
+    @NotBlank(message = "O CPF é obrigatório")
+    @Pattern(regexp = "\\d{11}", message = "O CPF precisa conter 11 dígitos")
     @Column(unique=true)
     private String cpf;
 
-    @NotBlank(message = "O telefone e obrigatorio")
-    @Pattern(regexp = "\\d{10,11}", message = "Telefone invalido")
+    @NotBlank(message = "O telefone é obrigatório")
+    @Pattern(regexp = "\\d{10,11}", message = "O Telefone precisa conter 11 dígitos")
     @Column(unique=true)
     private String telefone;
 

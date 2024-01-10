@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -27,6 +29,7 @@ public class Agendamento {
     @JoinColumn(name = "medico_id", nullable = false)
     private Medico medico;
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
     @Column(nullable = false)
     private LocalDateTime dataHora;
 

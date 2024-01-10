@@ -39,22 +39,22 @@
           th:object="${agendamento}" method="post">
 
         <div class="form-group">
-            <label for="paciente">Paciente:</label>
-            <select class="form-control" id="paciente" th:field="*{paciente.id}">
+            <label><small class="text-danger">*</small> Paciente:</label>
+            <select class="form-control" th:field="*{paciente.id}">
                 <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome}"></option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="medico">Médico:</label>
-            <select class="form-control" id="medico" th:field="*{medico.id}">
+            <label><small class="text-danger">*</small> Médico:</label>
+            <select class="form-control" th:field="*{medico.id}">
                 <option th:each="medico : ${medicos}" th:value="${medico.id}" th:text="${medico.nome}"></option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="dataHora">Data e Hora:</label>
-            <input type="datetime-local" class="form-control" id="dataHora" th:field="*{dataHora}" />
+            <label><small class="text-danger">*</small> Data e Hora:</label>
+            <input type="datetime-local" class="form-control" th:field="*{dataHora}" />
             <small class="text-danger" th:if="${#fields.hasErrors('dataHora')}" th:errors="*{dataHora}"></small>
         </div>
 

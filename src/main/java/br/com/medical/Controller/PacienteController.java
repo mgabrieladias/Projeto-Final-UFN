@@ -23,7 +23,6 @@ public class PacienteController {
         List<Paciente> pacientes = pacienteService.listarPacientes();
         model.addAttribute("pacientes", pacientes);
 
-        // Adicione este log para verificar o template que está sendo resolvido
         System.out.println("Resolving template for listarPacientes: pacientes");
 
         return "pacientes";

@@ -36,8 +36,12 @@
     <h2 class="mt-5 mb-4">Detalhes do Agendamento</h2>
     <p>ID: <span th:text="${agendamento.id}"></span></p>
     <p>Paciente: <span th:text="${agendamento.paciente.nome}"></span></p>
+    <p>CPF do Paciente: <span th:text="${agendamento.paciente.cpf}"></span></p>
+    <p>Telefone do Paciente: <span th:text="${agendamento.paciente.telefone}"></span></p>
     <p>Médico: <span th:text="${agendamento.medico.nome}"></span></p>
-    <p>Data e Hora: <span th:text="${agendamento.dataHora}"></span></p>
+    <p>CRM do Médico: <span th:text="${agendamento.medico.crm}"></span></p>
+    <p>Tipo de Consulta: <span th:text="${agendamento.medico.especialidade}"></span></p>
+    <p>Data e Hora: <span th:text="${#temporals.format(agendamento.dataHora, 'dd/MM/yyyy HH:mm')}"></span></p>
 
     <br>
     <a class="btn btn-outline-secondary" th:href="@{/agendamentos}">Voltar para a lista</a>

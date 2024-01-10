@@ -51,7 +51,7 @@
             <td th:text="${agendamento.id}"></td>
             <td th:text="${agendamento.paciente.nome}"></td>
             <td th:text="${agendamento.medico.nome}"></td>
-            <td th:text="${agendamento.dataHora}"></td>
+            <td th:text="${#temporals.format(agendamento.dataHora, 'dd/MM/yyyy HH:mm')}"></td>
             <td>
                 <a class="btn btn-outline-info" th:href="@{/agendamentos/{id}(id=${agendamento.id})}">Detalhes</a>
                 <a class="btn btn-outline-warning" th:href="@{/agendamentos/editar/{id}(id=${agendamento.id})}">Editar</a>
