@@ -32,11 +32,11 @@ public class Paciente {
     private String telefone;
 
 
-    @NotBlank(message = "Informe seu peso")
+    @NotBlank(message = "Informe o seu peso")
     private String peso;
 
 
-    @NotBlank(message = "Informe sua altura")
+    @NotBlank(message = "Informe a sua altura")
     private String altura;
 
 
