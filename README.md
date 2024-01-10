@@ -1,6 +1,7 @@
 # Choppermed Manager
 
 Choppermed Manager é um sistema de gerenciamento médico que permite o controle de médicos, pacientes e agendamentos. Este projeto é construído em Spring Boot e Thymeleaf.
+Confira todas as telas do sistema no arquivo: Apresentação Visual do Projeto.pdf
 
 ## Pré-requisitos
 
